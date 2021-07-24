@@ -8,6 +8,8 @@ import { Component, OnInit } from '@angular/core';
 export class MemberSearchComponent implements OnInit {
 
   constructor() { }
+  headerValue = "Member Search";
+  buttonValue = "menu";
 
   ngOnInit(): void {
   }

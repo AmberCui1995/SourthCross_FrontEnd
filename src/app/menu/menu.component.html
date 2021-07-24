@@ -1,5 +1,9 @@
-<button (click)="backClick()">back</button>
+<div>
+    <app-app-toolbar (click)="backClick()" [headerName]="headerValue" [buttonName]="buttonValue">
+    </app-app-toolbar>
 
-<button [routerLink]="['']">Member Search</button>
 
-<button [routerLink]="['/SearchResult']"> Search Result</button>
+    <button [routerLink]="['']">Member Search</button>
+
+    <button [routerLink]="['/SearchResult']"> Search Result</button>
+</div>

@@ -1,0 +1,8 @@
+.white-icon svg {
+    fill: white;
+}
+span {
+    text-align: center;
+    display: inline-block;
+    width: 100%;
+}
