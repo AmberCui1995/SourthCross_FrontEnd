@@ -1,5 +1,36 @@
 <div>
     <app-app-toolbar [routerLink]="['/Menu']" [headerName]="headerValue" [buttonName]="buttonValue">
     </app-app-toolbar>
-    <p>member-search works!</p>
+    <div></div>
+    <h2>Service Date</h2>
+    <mat-form-field class="width" appearance="fill">
+        <mat-label>Choose a date</mat-label>
+        <input matInput [matDatepicker]="picker">
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+    </mat-form-field>
+    <h2>Search Using</h2>
+    <form>
+        <mat-form-field class="width" appearance="fill">
+            <mat-label>Policy Number</mat-label>
+            <input matInput [(ngModel)]="policyNumber" [formControl]="policyFormControl" [errorStateMatcher]="matcher"
+                placeholder="Please enter a number">
+            <mat-error *ngIf="policyFormControl.hasError('required')">
+                Policy number is <strong>required</strong>
+            </mat-error>
+            <mat-error *ngIf="policyFormControl.hasError('pattern')">
+                Policy number must be a number
+            </mat-error>
+        </mat-form-field>
+    </form>
+    <form>
+        <mat-form-field class="width" appearance="fill">
+            <mat-label>Member Card Number</mat-label>
+            <input matInput [formControl]="memberCardNumberFormControl" [errorStateMatcher]="matcher">
+            <mat-error *ngIf="memberCardNumberFormControl.hasError('required')">
+                Member card number is <strong>required</strong>
+            </mat-error>
+        </mat-form-field>
+    </form>
+    <button mat-raised-button class="width" color="primary" (click)="searchPolicyMember(policyNumber)"> Submit</button>
 </div>
