@@ -1,9 +1,12 @@
 <div>
     <app-app-toolbar (click)="backClick()" [headerName]="headerValue" [buttonName]="buttonValue">
     </app-app-toolbar>
-
-
-    <button [routerLink]="['']">Member Search</button>
-
-    <button [routerLink]="['/SearchResult']"> Search Result</button>
+    <mat-list>
+        <mat-list-item>
+            <button mat-raised-button color="primary" [routerLink]="['']">Member Search</button>
+        </mat-list-item>
+        <mat-list-item>
+            <button mat-raised-button color="primary" [routerLink]="['/SearchResult']"> Search Result</button>
+        </mat-list-item>
+    </mat-list>
 </div>
