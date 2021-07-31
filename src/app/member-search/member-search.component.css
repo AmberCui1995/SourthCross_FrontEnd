@@ -4,4 +4,20 @@
     margin-left:25%;
     margin-right:25%;
   }
+  .center{
+    text-align: center;
+  }
+  .submit{
+    display:inline-block;
+    width: 45%;
   
+    margin-right: 5%;
+    text-align: center;
+  }
+
+  .reset{
+    display:inline-block;
+    width: 45%;
+    margin-left: 5%;
+    text-align: center;
+  }

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroupDirective, NgForm, ValidatorFn, Validators } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroupDirective, NgForm, ValidatorFn, Validators } from '@angular/forms';
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs/Observable';
@@ -26,35 +26,54 @@ const httpOptions = {
 @Injectable()
 export class MemberSearchComponent implements OnInit {
 
-  constructor(private searchService: SearchService) {
+  constructor(private searchService: SearchService, public userForm: FormBuilder) {
+
+  }
+  ngOnInit() {
 
   }
 
-
   headerValue = "Member Search";
   buttonValue = "menu";
+
   startDate = new Date();
+  memberCard?: string | undefined;
   policyNumber?: number | undefined;
 
-  policyFormControl = new FormControl('', [
+  dateFormControl = new FormControl(this.startDate, Validators.required);
+
+  policyFormControl = new FormControl(this.policyNumber, [
     Validators.required,
     Validators.pattern("[0-9]*")
   ]);
 
-  memberCardNumberFormControl = new FormControl('', [
-    Validators.required,
+  memberCardNumberFormControl = new FormControl(this.memberCard, [
+    Validators.pattern("^[A-Za-z0-9]+$"),
   ]);
 
-
-  matcher = new MyErrorStateMatcher();
+  form = this.userForm.group({
+    date: this.dateFormControl,
+    cardNumber: this.memberCardNumberFormControl,
+    policyNumber: this.policyFormControl
+  });
 
   searchPolicyMember(policyNumber: number | undefined): void {
-    console.log("Hello")
-    this.searchService.getPolicyMember(policyNumber).subscribe(members => console.log(members));
+    if (this.form.valid) {
+      console.log(this.form);
+      console.log('form submitted');
+      this.searchService.getPolicyMember(policyNumber).subscribe(members => console.log(members));
+    } else {
+
+      this.policyFormControl.markAsTouched();
+      console.log('failed');
+    }
   }
 
-  ngOnInit(): void {
+  resetPolicyMember(): void {
+    this.startDate = new Date();
+    this.policyNumber = undefined;
+    this.memberCard = undefined;
+    this.searchService.resetMemberSource();
 
   }
-
 }

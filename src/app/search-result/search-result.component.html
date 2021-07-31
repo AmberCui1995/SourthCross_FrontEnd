@@ -1,5 +1,12 @@
 <div>
-    <app-app-toolbar [routerLink]="['/Menu']" [headerName]="headerValue" [buttonName]="buttonValue">
+    <app-app-toolbar flex [routerLink]="['/Menu']" [headerName]="headerValue" [buttonName]="buttonValue">
     </app-app-toolbar>
-    <p>search-result works!</p>
+
+    <mat-card class="card" *ngFor="let item of memberList; let i = index">
+        <div>
+            <div flex class="md-body-2">First Name: {{item.firstName}}</div>
+            <div flexclass="md-body-2">Last Name: {{item.lastName}}</div>
+            <div flex class="md-body-2">Date Of Birth: {{item.dataOfBirth}}</div>
+        </div>
+    </mat-card>
 </div>

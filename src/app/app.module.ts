@@ -18,6 +18,8 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatNativeDateModule } from '@angular/material/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { MatCardModule } from '@angular/material/card';
+import { MatGridListModule } from '@angular/material/grid-list';
 
 
 @NgModule({
@@ -27,7 +29,6 @@ import { HttpClientModule } from '@angular/common/http';
     MemberSearchComponent,
     SearchResultComponent,
     AppToolbarComponent,
-
   ],
   imports: [
     BrowserModule,
@@ -41,8 +42,11 @@ import { HttpClientModule } from '@angular/common/http';
     MatDatepickerModule,
     MatFormFieldModule,
     MatNativeDateModule,
+    FormsModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    MatCardModule,
+    MatGridListModule
   ],
   exports: [
     MatIconModule,
@@ -51,7 +55,12 @@ import { HttpClientModule } from '@angular/common/http';
     MatButtonModule,
     MatInputModule,
     MatDatepickerModule,
-    MatFormFieldModule
+    MatFormFieldModule,
+    MatNativeDateModule,
+    ReactiveFormsModule,
+    HttpClientModule,
+    MatCardModule,
+    MatGridListModule
   ],
   providers: [],
   bootstrap: [AppComponent]

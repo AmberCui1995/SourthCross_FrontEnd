@@ -1,36 +1,41 @@
 <div>
     <app-app-toolbar [routerLink]="['/Menu']" [headerName]="headerValue" [buttonName]="buttonValue">
     </app-app-toolbar>
-    <div></div>
-    <h2>Service Date</h2>
-    <mat-form-field class="width" appearance="fill">
-        <mat-label>Choose a date</mat-label>
-        <input matInput [matDatepicker]="picker">
-        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-        <mat-datepicker #picker></mat-datepicker>
-    </mat-form-field>
-    <h2>Search Using</h2>
-    <form>
+    <form [formGroup]="form">
+        <h2 class="center">Service Date</h2>
+        <mat-form-field class="width" appearance="fill">
+            <mat-label>Choose a date</mat-label>
+            <input matInput [matDatepicker]="picker" [(ngModel)]="startDate" [formControl]="dateFormControl" required>
+            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+        </mat-form-field>
+        <h2 class="center">Search Using</h2>
         <mat-form-field class="width" appearance="fill">
             <mat-label>Policy Number</mat-label>
-            <input matInput [(ngModel)]="policyNumber" [formControl]="policyFormControl" [errorStateMatcher]="matcher"
-                placeholder="Please enter a number">
-            <mat-error *ngIf="policyFormControl.hasError('required')">
+            <input matInput [(ngModel)]="policyNumber" [formControl]="policyFormControl"
+                placeholder="Please enter a number" required>
+            <mat-error *ngIf="policyFormControl.hasError('required') || !policyFormControl.touched">
                 Policy number is <strong>required</strong>
             </mat-error>
             <mat-error *ngIf="policyFormControl.hasError('pattern')">
                 Policy number must be a number
             </mat-error>
         </mat-form-field>
-    </form>
-    <form>
         <mat-form-field class="width" appearance="fill">
             <mat-label>Member Card Number</mat-label>
-            <input matInput [formControl]="memberCardNumberFormControl" [errorStateMatcher]="matcher">
-            <mat-error *ngIf="memberCardNumberFormControl.hasError('required')">
-                Member card number is <strong>required</strong>
+            <input matInput [(ngModel)]="memberCard" [formControl]="memberCardNumberFormControl">
+            <mat-error *ngIf="memberCardNumberFormControl.hasError('pattern')">
+                Member card number must be number or character
             </mat-error>
         </mat-form-field>
     </form>
-    <button mat-raised-button class="width" color="primary" (click)="searchPolicyMember(policyNumber)"> Submit</button>
+    <div class="width" layout-align="center">
+
+        <button class="submit" mat-raised-button color="primary" margin="left"
+            (click)="searchPolicyMember(policyNumber)">Submit</button>
+
+        <button class="reset" mat-raised-button color="primary" margin="right"
+            (click)="resetPolicyMember()">Reset</button>
+
+    </div>
 </div>
