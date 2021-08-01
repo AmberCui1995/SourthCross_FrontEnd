@@ -5,6 +5,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs/Observable';
 import { ErrorStateMatcher } from '@angular/material/core';
 import { SearchService } from '../service/search.service';
+import { ToastrService } from 'ngx-toastr';
 
 export class MyErrorStateMatcher implements ErrorStateMatcher {
   isErrorState(control: FormControl | null, form: FormGroupDirective | NgForm | null): boolean {
@@ -26,7 +27,7 @@ const httpOptions = {
 @Injectable()
 export class MemberSearchComponent implements OnInit {
 
-  constructor(private searchService: SearchService, public userForm: FormBuilder) {
+  constructor(private searchService: SearchService, public userForm: FormBuilder, private toastr: ToastrService) {
 
   }
   ngOnInit() {
@@ -62,10 +63,12 @@ export class MemberSearchComponent implements OnInit {
       console.log(this.form);
       console.log('form submitted');
       this.searchService.getPolicyMember(policyNumber).subscribe(members => console.log(members));
+      this.toastr.success('Please check the result on Search Reasult.', 'Submit Successfully');
     } else {
 
       this.policyFormControl.markAsTouched();
       console.log('failed');
+      this.toastr.error('Please enter a policy number.', 'Cannot Submit');
     }
   }
 
@@ -74,6 +77,6 @@ export class MemberSearchComponent implements OnInit {
     this.policyNumber = undefined;
     this.memberCard = undefined;
     this.searchService.resetMemberSource();
-
+    this.toastr.success('Search Reasult is empty now.', 'Reset Successfully');
   }
 }

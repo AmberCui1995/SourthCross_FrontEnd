@@ -20,6 +20,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { MatCardModule } from '@angular/material/card';
 import { MatGridListModule } from '@angular/material/grid-list';
+import { ToastrModule } from 'ngx-toastr';
 
 
 @NgModule({
@@ -46,7 +47,8 @@ import { MatGridListModule } from '@angular/material/grid-list';
     ReactiveFormsModule,
     HttpClientModule,
     MatCardModule,
-    MatGridListModule
+    MatGridListModule,
+    ToastrModule.forRoot(),
   ],
   exports: [
     MatIconModule,
