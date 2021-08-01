@@ -6,10 +6,10 @@ It is built using Angular with reactive forms validation.
 ## UI for the application
 The UI for the application looks like below. Click submit button to search matched member and go to the menu on search result to view the members.
 ![image](https://user-images.githubusercontent.com/27046313/127756103-82e6113a-37f3-4440-a704-be924ae98d80.png)
-![image](https://user-images.githubusercontent.com/27046313/127756136-d8f6343b-87e3-43d3-8ee1-4c1d303745b7.png)
+![image](https://user-images.githubusercontent.com/27046313/127756186-b398e849-c7f8-442e-966b-0428db48f517.png)
 
+## Available Scripts
 
-##Available Scripts
 In the project directory, you can run:  `ng build` to build the project.
 The build artifacts will be stored in the `dist/` directory.
 Open http://localhost:4200 to view it in the browser.
