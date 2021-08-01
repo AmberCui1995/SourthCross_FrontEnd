@@ -1,26 +1,21 @@
-# SourthCrossFrontEnd
+# SourthCross FrontEnd Policy Member Web Application
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 12.1.3.
+This project is a simple web application to search the member by entering policy number and show the list of result in search list.
+It is built using Angular with reactive forms validation.
 
-## Development server
+## UI for the application
+The UI for the application looks like below. Click submit button to search matched member and go to the menu on search result to view the members.
+![image](https://user-images.githubusercontent.com/27046313/127756103-82e6113a-37f3-4440-a704-be924ae98d80.png)
+![image](https://user-images.githubusercontent.com/27046313/127756136-d8f6343b-87e3-43d3-8ee1-4c1d303745b7.png)
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
 
-## Code scaffolding
+##Available Scripts
+In the project directory, you can run:  `ng build` to build the project.
+The build artifacts will be stored in the `dist/` directory.
+Open http://localhost:4200 to view it in the browser.
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
-
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+The page will reload if you make edits.
+You will also see any lint errors in the console.
 
 ## Further help
 
